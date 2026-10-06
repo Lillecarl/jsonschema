@@ -381,6 +381,17 @@ impl<'i, R, F: Json> ValidationOptions<'i, R, F> {
         self.validate_schema = false;
         self
     }
+    /// Set whether to validate the schema against its meta-schema before building.
+    ///
+    /// On by default. Turn it off for a schema written in a dialect whose keyword values
+    /// the meta-schema rejects, such as Kubernetes' structural schemas, whose `pattern`s
+    /// are RE2 rather than ECMA 262 (`^\PC*$`). The schema must still compile.
+    #[inline]
+    #[must_use]
+    pub fn should_validate_schema(mut self, yes: bool) -> Self {
+        self.validate_schema = yes;
+        self
+    }
     /// Set whether to validate formats.
     ///
     /// Default behavior depends on the draft version. This method overrides

@@ -148,6 +148,7 @@ def is_valid(
     keywords: dict[str, type[KeywordValidator]] | None = None,
     vocabularies: list[str] | None = None,
     offline: bool | None = None,
+    validate_schema: bool | None = None,
 ) -> bool:
     """Check if a JSON instance is valid against a schema.
 
@@ -172,6 +173,7 @@ def validate(
     keywords: dict[str, type[KeywordValidator]] | None = None,
     vocabularies: list[str] | None = None,
     offline: bool | None = None,
+    validate_schema: bool | None = None,
 ) -> None:
     """Validate a JSON instance against a schema.
 
@@ -196,6 +198,7 @@ def iter_errors(
     keywords: dict[str, type[KeywordValidator]] | None = None,
     vocabularies: list[str] | None = None,
     offline: bool | None = None,
+    validate_schema: bool | None = None,
 ) -> Iterator[ValidationError]:
     """Iterate over all validation errors.
 
@@ -219,6 +222,7 @@ def evaluate(
     keywords: dict[str, type[KeywordValidator]] | None = None,
     vocabularies: list[str] | None = None,
     offline: bool | None = None,
+    validate_schema: bool | None = None,
 ) -> Evaluation:
     """Evaluate an instance and return structured output.
 
@@ -377,6 +381,7 @@ class Draft4Validator:
         keywords: dict[str, type[KeywordValidator]] | None = None,
         vocabularies: list[str] | None = None,
         offline: bool | None = None,
+        validate_schema: bool | None = None,
     ) -> None: ...
     def is_valid(self, instance: Any) -> bool: ...
     def validate(self, instance: Any) -> None: ...
@@ -401,6 +406,7 @@ class Draft6Validator:
         keywords: dict[str, type[KeywordValidator]] | None = None,
         vocabularies: list[str] | None = None,
         offline: bool | None = None,
+        validate_schema: bool | None = None,
     ) -> None: ...
     def is_valid(self, instance: Any) -> bool: ...
     def validate(self, instance: Any) -> None: ...
@@ -425,6 +431,7 @@ class Draft7Validator:
         keywords: dict[str, type[KeywordValidator]] | None = None,
         vocabularies: list[str] | None = None,
         offline: bool | None = None,
+        validate_schema: bool | None = None,
     ) -> None: ...
     def is_valid(self, instance: Any) -> bool: ...
     def validate(self, instance: Any) -> None: ...
@@ -449,6 +456,7 @@ class Draft201909Validator:
         keywords: dict[str, type[KeywordValidator]] | None = None,
         vocabularies: list[str] | None = None,
         offline: bool | None = None,
+        validate_schema: bool | None = None,
     ) -> None: ...
     def is_valid(self, instance: Any) -> bool: ...
     def validate(self, instance: Any) -> None: ...
@@ -473,6 +481,7 @@ class Draft202012Validator:
         keywords: dict[str, type[KeywordValidator]] | None = None,
         vocabularies: list[str] | None = None,
         offline: bool | None = None,
+        validate_schema: bool | None = None,
     ) -> None: ...
     def is_valid(self, instance: Any) -> bool: ...
     def validate(self, instance: Any) -> None: ...
@@ -497,6 +506,7 @@ def validator_for(
     keywords: dict[str, type[KeywordValidator]] | None = None,
     vocabularies: list[str] | None = None,
     offline: bool | None = None,
+    validate_schema: bool | None = None,
 ) -> Validator:
     """Create a validator for the given schema.
 
@@ -539,6 +549,7 @@ def validator_map_for(
     keywords: dict[str, type[KeywordValidator]] | None = None,
     vocabularies: list[str] | None = None,
     offline: bool | None = None,
+    validate_schema: bool | None = None,
 ) -> ValidatorMap:
     """Compile all subschemas in *schema* into a map keyed by URI-fragment JSON pointer.
 
