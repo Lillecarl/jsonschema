@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- `ValidationOptions::should_validate_schema` to skip meta-schema validation when building a validator.
+
 ## [0.58.6] - 2026-10-06
 
 ### Fixed
